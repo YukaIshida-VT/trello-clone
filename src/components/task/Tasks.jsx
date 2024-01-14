@@ -10,8 +10,12 @@ const reorder = (list, startIndex, endIndex) => {
 
 export const Tasks = ({ taskList, setTaskList }) => {
   const handleDragEnd = (result) => {
-    // console.log(result);
-    reorder(taskList, result.source.index, result.destination.index);
+    let endIndex = taskList.length - 1;
+    if (result.destination !== null) {
+      endIndex = result.destination.index;
+    }
+
+    reorder(taskList, result.source.index, endIndex);
     setTaskList(taskList);
   };
   return (

@@ -12,7 +12,6 @@ export const AddTaskCardButton = ({ setTaskCardsList, taskCardsList }) => {
         draggableId: `item${taskCardId}`,
       },
     ]);
-    console.log(taskCardsList)
   };
   return (
     <div className="addTaskCardButtonArea">

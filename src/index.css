@@ -103,3 +103,17 @@ header {
   box-shadow: none;
   transform: translate(3px, 3px);
 }
+
+.cardTitleAndCardDeleteButtonArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taskCardDeleteButton {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(228, 228, 228);
+  font-size: 16px;
+  color: rgb(158, 46, 46);
+}

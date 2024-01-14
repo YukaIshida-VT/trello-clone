@@ -13,6 +13,9 @@ export const TaskCards = () => {
       {taskCardsList.map((taskCard) => (
         <TaskCard
           key={taskCard.id}
+          taskCardsList={taskCardsList}
+          setTaskCardsList={setTaskCardsList}
+          taskCard={taskCard}
         />
       )
       )}

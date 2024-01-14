@@ -2,8 +2,8 @@ import React from 'react'
 
 export const AddTaskCardButton = () => {
   return (
-    <div>
-      
+    <div className='addTaskCardButtonArea'>
+      <button className='AddTaskCardButton'>+</button>
     </div>
   )
 }

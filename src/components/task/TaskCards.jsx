@@ -3,6 +3,12 @@ import { TaskCard } from "./TaskCard";
 import { AddTaskCardButton } from "./button/AddTaskCardButton";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
+const reorder = (list, startIndex, endIndex) => {
+  // タスクを並び替える
+  const remove = list.splice(startIndex, 1);
+  list.splice(endIndex, 0, remove[0]);
+}
+
 export const TaskCards = () => {
   const [taskCardsList, setTaskCardsList] = useState([
     {
@@ -11,8 +17,18 @@ export const TaskCards = () => {
     },
   ]);
 
+  const handleDragEnd = (result) => {
+    let endIndex = taskCardsList.length - 1;
+    if (result.destination !== null) {
+      endIndex = result.destination.index;
+    }
+
+    reorder(taskCardsList, result.source.index, endIndex);
+    setTaskCardsList(taskCardsList);
+  };
+
   return (
-    <DragDropContext>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="Droppable" direction="horizontal">
         {(provided) => (
           <div
